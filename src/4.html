@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: stretch;
+        }
+        .flex-grow {
+            flex-grow: 1
+        }
+        .flex-grow2 {
+            flex-grow: 2
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
+        }
+        .purple {
+            background-color: purple;
+        }
+        .brown {
+            background-color: saddlebrown;
+        }
+        .lightYellow {
+            background-color: #d2d2a0;
+        }
+        div{
+            height: 1em
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="flex-container">
+    <div class="box flex-grow red" style="height: 6em"></div>
+    <div class="flex-grow2">
+        <div class="flex-container">
+            <div class="box flex-grow blue"></div>
+            <div class="box flex-grow green"></div>
+        </div>
+        <div class="box purple" style="height: 4em"></div>
+        <div class="flex-container">
+            <div class="box flex-grow brown"></div>
+            <div class="box flex-grow lightYellow"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const colors = ['red', 'blue', 'green', 'purple', 'brown', 'lightYellow', 'black', 'grey', 'white']
+
+    document.querySelectorAll('.box').forEach(el => {
+        el.addEventListener('click', (e) => changeColor(e))
+    })
+
+    function changeColor(e) {
+        e.preventDefault()
+        const newColor = colors[Math.floor(Math.random()*colors.length)];
+        e.target.style.backgroundColor = newColor
+        console.log(newColor)
+    }
+
+
+</script>
+
+</body>
+</html>
